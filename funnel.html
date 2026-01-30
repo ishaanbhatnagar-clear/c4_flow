@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peppol Product Funnel - Clear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #ffffff;
+            --bg-secondary: #f7f7f8;
+            --bg-tertiary: #ececf1;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #e5e5e5;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --info: #2563eb;
+            --purple: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--text-primary);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        .section-icon.sender { background: var(--info); }
+        .section-icon.receiver { background: var(--success); }
+
+        .section-header h2 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .section-header .subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        /* Subsection */
+        .subsection {
+            margin-bottom: 24px;
+        }
+
+        .subsection-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subsection-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            border-radius: 2px;
+        }
+
+        .subsection-title.actions::before { background: var(--info); }
+        .subsection-title.tracking::before { background: var(--purple); }
+        .subsection-title.actions-green::before { background: var(--success); }
+        .subsection-title.tracking-green::before { background: var(--warning); }
+
+        /* Table */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .metrics-table th {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .metrics-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .metrics-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .metrics-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        .metrics-table .stage-num {
+            width: 40px;
+            text-align: center;
+        }
+
+        .metrics-table .stage-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .metrics-table .metric-name {
+            font-weight: 600;
+        }
+
+        .metrics-table .metric-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .metrics-table .corner-badge {
+            display: inline-flex;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            margin-left: 8px;
+        }
+
+        .metrics-table .protocol-badge {
+            display: inline-flex;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+
+        .metrics-table .formula {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .metrics-table .value {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .metrics-table .value.success { color: var(--success); }
+        .metrics-table .value.warning { color: var(--warning); }
+        .metrics-table .value.error { color: var(--error); }
+        .metrics-table .value.info { color: var(--info); }
+
+        .metrics-table .trend {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .metrics-table .trend.up { color: var(--success); }
+        .metrics-table .trend.down { color: var(--error); }
+
+        /* Separator row */
+        .metrics-table tr.section-row td {
+            background: var(--bg-tertiary);
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        /* Status breakdown */
+        .status-breakdown {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.green { background: var(--success); }
+        .status-dot.orange { background: var(--warning); }
+        .status-dot.red { background: var(--error); }
+
+        /* Notes */
+        .note {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        .note-icon {
+            flex-shrink: 0;
+        }
+
+        .note code {
+            background: var(--bg-tertiary);
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Peppol Product Funnel Metrics</h1>
+            <p>Clear as Sender (C1+C2) and Receiver (C3+C4)</p>
+        </header>
+
+        <!-- SENDER FUNNEL -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon sender">&#8593;</div>
+                <div>
+                    <h2>Sender Funnel (C1 + C2)</h2>
+                </div>
+                <div class="subtitle">Clear SaaS + Clear Access Point</div>
+            </div>
+
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th class="stage-num">#</th>
+                        <th style="width:25%">Metric</th>
+                        <th style="width:30%">Formula</th>
+                        <th style="width:15%">Value</th>
+                        <th style="width:15%">Rate</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Actions Section -->
+                    <tr class="section-row">
+                        <td colspan="6">Actions (What sender does)</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">1</span></td>
+                        <td>
+                            <div class="metric-name">Invoices Created <span class="corner-badge">C1</span></div>
+                            <div class="metric-desc">User creates/imports invoice in Clear</div>
+                        </td>
+                        <td><span class="formula">COUNT(invoices_created)</span></td>
+                        <td><span class="value">10,000</span></td>
+                        <td><span class="value">100%</span></td>
+                        <td>Base metric</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">2</span></td>
+                        <td>
+                            <div class="metric-name">Validated Locally <span class="corner-badge">C1</span></div>
+                            <div class="metric-desc">Passed schema + schematron pre-flight</div>
+                        </td>
+                        <td><span class="formula">COUNT(validation_passed)</span></td>
+                        <td><span class="value">9,700</span></td>
+                        <td><span class="value success">97.0%</span></td>
+                        <td>3% fail local validation</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">3</span></td>
+                        <td>
+                            <div class="metric-name">Submitted to AP <span class="corner-badge">C1→C2</span></div>
+                            <div class="metric-desc">Invoice handed off to Clear AP</div>
+                        </td>
+                        <td><span class="formula">COUNT(submitted_to_ap)</span></td>
+                        <td><span class="value">9,700</span></td>
+                        <td><span class="value success">100%</span></td>
+                        <td>Internal handoff</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">4</span></td>
+                        <td>
+                            <div class="metric-name">AS4 Transmitted <span class="corner-badge">C2→C3</span></div>
+                            <div class="metric-desc">Sent to receiver AP (sent ONCE)</div>
+                        </td>
+                        <td><span class="formula">COUNT(as4_sent)</span></td>
+                        <td><span class="value">9,651</span></td>
+                        <td><span class="value success">99.5%</span></td>
+                        <td><span class="protocol-badge">AS4</span> Sender's job done</td>
+                    </tr>
+
+                    <!-- Tracking Section -->
+                    <tr class="section-row">
+                        <td colspan="6">Tracking / Visibility (Status received from network)</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">5</span></td>
+                        <td>
+                            <div class="metric-name">AS4 Acknowledged <span class="corner-badge">C3→C2</span></div>
+                            <div class="metric-desc">Receiver AP confirmed receipt</div>
+                        </td>
+                        <td><span class="formula">COUNT(as4_ack_positive)</span></td>
+                        <td><span class="value">9,632</span></td>
+                        <td><span class="value success">99.8%</span></td>
+                        <td><span class="protocol-badge">AS4 +</span> Immediate response</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">6</span></td>
+                        <td>
+                            <div class="metric-name">MLS: Delivered <span class="corner-badge">C3→C2</span></div>
+                            <div class="metric-desc">Confirmed delivery to buyer system</div>
+                            <div class="status-breakdown">
+                                <span class="status-item"><span class="status-dot green"></span>AP: 9,488</span>
+                                <span class="status-item"><span class="status-dot orange"></span>AB: 52</span>
+                                <span class="status-item"><span class="status-dot red"></span>RE: 92</span>
+                            </div>
+                        </td>
+                        <td><span class="formula">COUNT(mls_status = 'AP')</span></td>
+                        <td><span class="value">9,488</span></td>
+                        <td><span class="value success">98.5%</span></td>
+                        <td><span class="protocol-badge">MLS AP+DL</span> Async, 1+ times</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <span class="note-icon">&#128161;</span>
+                <div>
+                    <strong>Key insight:</strong> Sender's active work ends at Stage 4 (AS4 Transmitted).
+                    Stages 5-6 are status updates received from the network.
+                    <code>AS4</code> is sent once; <code>MLS</code> can be received multiple times with progressive updates (AB → AP+DL).
+                </div>
+            </div>
+        </div>
+
+        <!-- RECEIVER FUNNEL -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon receiver">&#8595;</div>
+                <div>
+                    <h2>Receiver Funnel (C3 + C4)</h2>
+                </div>
+                <div class="subtitle">Clear Access Point + Clear SaaS</div>
+            </div>
+
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th class="stage-num">#</th>
+                        <th style="width:25%">Metric</th>
+                        <th style="width:30%">Formula</th>
+                        <th style="width:15%">Value</th>
+                        <th style="width:15%">Rate</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Actions Section -->
+                    <tr class="section-row">
+                        <td colspan="6">Actions (What receiver does)</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">1</span></td>
+                        <td>
+                            <div class="metric-name">AS4 Received <span class="corner-badge">C2→C3</span></div>
+                            <div class="metric-desc">Invoice arrived at Clear AP</div>
+                        </td>
+                        <td><span class="formula">COUNT(as4_received)</span></td>
+                        <td><span class="value">8,500</span></td>
+                        <td><span class="value">100%</span></td>
+                        <td><span class="protocol-badge">AS4</span> Base metric</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">2</span></td>
+                        <td>
+                            <div class="metric-name">Validated <span class="corner-badge">C3</span></div>
+                            <div class="metric-desc">Passed schema + business rules</div>
+                        </td>
+                        <td><span class="formula">COUNT(validation_passed)</span></td>
+                        <td><span class="value">8,373</span></td>
+                        <td><span class="value success">98.5%</span></td>
+                        <td>1.5% rejected (SV/BV)</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">3</span></td>
+                        <td>
+                            <div class="metric-name">AS4 Response Sent <span class="corner-badge">C3→C2</span></div>
+                            <div class="metric-desc">Acknowledge receipt to sender</div>
+                        </td>
+                        <td><span class="formula">COUNT(as4_response_sent)</span></td>
+                        <td><span class="value">8,500</span></td>
+                        <td><span class="value success">100%</span></td>
+                        <td><span class="protocol-badge">AS4 +/-</span> Immediate</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">4</span></td>
+                        <td>
+                            <div class="metric-name">MLS Sent (AB) <span class="corner-badge">C3→C2</span></div>
+                            <div class="metric-desc">Notify sender: acknowledged, processing</div>
+                        </td>
+                        <td><span class="formula">COUNT(mls_ab_sent)</span></td>
+                        <td><span class="value">8,373</span></td>
+                        <td><span class="value success">100%</span></td>
+                        <td><span class="protocol-badge">MLS AB</span></td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">5</span></td>
+                        <td>
+                            <div class="metric-name">Delivered to C4 <span class="corner-badge">C3→C4</span></div>
+                            <div class="metric-desc">Invoice routed to buyer's system</div>
+                        </td>
+                        <td><span class="formula">COUNT(delivered_to_c4)</span></td>
+                        <td><span class="value">8,306</span></td>
+                        <td><span class="value success">99.2%</span></td>
+                        <td>0.8% delivery failed (DF)</td>
+                    </tr>
+                    <tr>
+                        <td class="stage-num"><span class="stage-badge">6</span></td>
+                        <td>
+                            <div class="metric-name">MLS Sent (AP+DL) <span class="corner-badge">C3→C2</span></div>
+                            <div class="metric-desc">Notify sender: accepted & delivered</div>
+                        </td>
+                        <td><span class="formula">COUNT(mls_ap_dl_sent)</span></td>
+                        <td><span class="value">8,306</span></td>
+                        <td><span class="value success">99.2%</span></td>
+                        <td><span class="protocol-badge">MLS AP+DL</span> Based on C3→C4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <span class="note-icon">&#128161;</span>
+                <div>
+                    <strong>Key insight:</strong> MLS reason codes <code>DL</code> (Delivered) and <code>DF</code> (Delivery Failed) are based on C3→C4 outcome.
+                    Validation errors use <code>SV</code> (Schema) or <code>BV</code> (Business).
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Peppol 4-Corner Model Product Funnel | Clear</p>
+        </footer>
+    </div>
+</body>
+</html>
