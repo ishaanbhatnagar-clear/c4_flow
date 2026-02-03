@@ -891,88 +891,88 @@
 
                         <!-- STEP 5: AS4 Response (+/-) -->
                         <g class="step-element" data-step="5">
-                            <rect x="499" y="310" width="12" height="70" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <rect x="499" y="310" width="12" height="60" rx="4" fill="#e5e5e5" stroke="#999"/>
                             <!-- Alt frame for AS4 response -->
-                            <rect x="325" y="315" width="200" height="60" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
+                            <rect x="325" y="315" width="200" height="52" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
                             <rect x="325" y="315" width="30" height="16" rx="3" fill="#f7f7f8" stroke="#d0d0d0"/>
                             <text x="340" y="327" text-anchor="middle" font-size="8" font-weight="700" fill="#666">alt</text>
                             <!-- Success -->
-                            <text x="335" y="342" font-size="9" fill="#059669" font-weight="600">[success]</text>
-                            <line x1="499" y1="345" x2="327" y2="345" stroke="#059669" stroke-width="2" stroke-dasharray="6,4"/>
-                            <polygon points="327,345 337,340 337,350" fill="#059669"/>
-                            <rect x="370" y="334" width="80" height="20" rx="4" fill="#ecfdf5" stroke="#059669"/>
-                            <text x="410" y="348" text-anchor="middle" font-size="10" font-weight="700" fill="#059669">3a: AS4 +</text>
+                            <text x="335" y="340" font-size="9" fill="#059669" font-weight="600">[success]</text>
+                            <line x1="499" y1="343" x2="327" y2="343" stroke="#059669" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="327,343 337,338 337,348" fill="#059669"/>
+                            <rect x="370" y="332" width="80" height="20" rx="4" fill="#ecfdf5" stroke="#059669"/>
+                            <text x="410" y="346" text-anchor="middle" font-size="10" font-weight="700" fill="#059669">3a: AS4 +</text>
                             <!-- Failure -->
-                            <line x1="325" y1="360" x2="525" y2="360" stroke="#d0d0d0" stroke-dasharray="4,3"/>
-                            <text x="335" y="372" font-size="9" fill="#dc2626" font-weight="600">[failure]</text>
-                            <rect x="370" y="362" width="80" height="18" rx="4" fill="#fef2f2" stroke="#dc2626"/>
-                            <text x="410" y="374" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">3b: AS4 -</text>
+                            <line x1="325" y1="355" x2="525" y2="355" stroke="#d0d0d0" stroke-dasharray="4,3"/>
+                            <text x="335" y="365" font-size="9" fill="#dc2626" font-weight="600">[failure]</text>
+                            <rect x="418" y="356" width="80" height="16" rx="4" fill="#fef2f2" stroke="#dc2626"/>
+                            <text x="458" y="367" text-anchor="middle" font-size="8" font-weight="700" fill="#dc2626">3b: AS4 -</text>
                         </g>
 
-                        <!-- STEP 6: MLS Response (optional, 1+ times) from C3 to C2 -->
+                        <!-- STEP 6: C3 validates -->
                         <g class="step-element" data-step="6">
-                            <!-- Opt frame for MLS -->
-                            <rect x="325" y="390" width="200" height="50" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
-                            <rect x="325" y="390" width="30" height="16" rx="3" fill="#f7f7f8" stroke="#d0d0d0"/>
-                            <text x="340" y="402" text-anchor="middle" font-size="8" font-weight="700" fill="#666">opt</text>
-                            <text x="365" y="402" font-size="8" fill="#666" font-style="italic">[MLS supported]</text>
-                            <!-- MLS message from C3 to C2 -->
-                            <line x1="499" y1="420" x2="327" y2="420" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4"/>
-                            <polygon points="327,420 337,415 337,425" fill="#7c3aed"/>
-                            <rect x="355" y="408" width="110" height="22" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
-                            <text x="410" y="424" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">4: MLS (1+ times)</text>
-                            <!-- MLS note -->
-                            <rect x="530" y="395" width="85" height="42" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
-                            <text x="572" y="410" text-anchor="middle" font-size="8" font-weight="600" fill="#6d28d9">MLS Status:</text>
-                            <text x="572" y="422" text-anchor="middle" font-size="7" fill="#7c3aed">AP/AB/RE</text>
-                            <text x="572" y="432" text-anchor="middle" font-size="7" fill="#7c3aed">DL/DF/SV/BV</text>
+                            <rect x="499" y="380" width="12" height="40" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <rect x="520" y="385" width="80" height="30" rx="5" fill="#ecfdf5" stroke="#00732f"/>
+                            <text x="560" y="405" text-anchor="middle" font-size="9" font-weight="600" fill="#00732f">Validate</text>
                         </g>
 
-                        <!-- STEP 7: C3 validates -->
+                        <!-- STEP 7: MLS Response (optional, 1+ times) from C3 to C2 - AFTER validation -->
                         <g class="step-element" data-step="7">
-                            <rect x="499" y="450" width="12" height="40" rx="4" fill="#e5e5e5" stroke="#999"/>
-                            <rect x="520" y="455" width="80" height="30" rx="5" fill="#ecfdf5" stroke="#00732f"/>
-                            <text x="560" y="475" text-anchor="middle" font-size="9" font-weight="600" fill="#00732f">Validate</text>
+                            <!-- Opt frame for MLS -->
+                            <rect x="325" y="425" width="200" height="50" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
+                            <rect x="325" y="425" width="30" height="16" rx="3" fill="#f7f7f8" stroke="#d0d0d0"/>
+                            <text x="340" y="437" text-anchor="middle" font-size="8" font-weight="700" fill="#666">opt</text>
+                            <text x="365" y="437" font-size="8" fill="#666" font-style="italic">[MLS supported]</text>
+                            <!-- MLS message from C3 to C2 -->
+                            <line x1="499" y1="455" x2="327" y2="455" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="327,455 337,450 337,460" fill="#7c3aed"/>
+                            <rect x="355" y="443" width="110" height="22" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
+                            <text x="410" y="459" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">4: MLS (1+ times)</text>
+                            <!-- MLS note -->
+                            <rect x="530" y="430" width="85" height="42" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
+                            <text x="572" y="445" text-anchor="middle" font-size="8" font-weight="600" fill="#6d28d9">After validation:</text>
+                            <text x="572" y="457" text-anchor="middle" font-size="7" fill="#7c3aed">AP/AB/RE</text>
+                            <text x="572" y="467" text-anchor="middle" font-size="7" fill="#7c3aed">DL/DF/SV/BV</text>
                         </g>
 
                         <!-- STEP 8: PARALLEL - C3 sends TDD to C5 AND delivers to C4 -->
                         <g class="step-element" data-step="8">
                             <!-- PAR frame for parallel operations -->
-                            <rect x="495" y="495" width="385" height="90" rx="6" fill="none" stroke="#2563eb" stroke-width="2"/>
-                            <rect x="495" y="495" width="30" height="16" rx="3" fill="#eff6ff" stroke="#2563eb"/>
-                            <text x="510" y="507" text-anchor="middle" font-size="8" font-weight="700" fill="#2563eb">par</text>
+                            <rect x="495" y="485" width="385" height="90" rx="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <rect x="495" y="485" width="30" height="16" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+                            <text x="510" y="497" text-anchor="middle" font-size="8" font-weight="700" fill="#2563eb">par</text>
 
                             <!-- TDD to FTA (C5) -->
-                            <line x1="511" y1="525" x2="853" y2="525" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
-                            <polygon points="853,525 843,520 843,530" fill="#ce1126"/>
-                            <rect x="630" y="513" width="100" height="20" rx="5" fill="#fef2f2" stroke="#ce1126"/>
-                            <text x="680" y="527" text-anchor="middle" font-size="9" font-weight="700" fill="#ce1126">5a: TDD Report</text>
+                            <line x1="511" y1="515" x2="853" y2="515" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
+                            <polygon points="853,515 843,510 843,520" fill="#ce1126"/>
+                            <rect x="630" y="503" width="100" height="20" rx="5" fill="#fef2f2" stroke="#ce1126"/>
+                            <text x="680" y="517" text-anchor="middle" font-size="9" font-weight="700" fill="#ce1126">5a: TDD Report</text>
 
                             <!-- Divider line -->
-                            <line x1="495" y1="545" x2="880" y2="545" stroke="#2563eb" stroke-dasharray="4,3"/>
+                            <line x1="495" y1="535" x2="880" y2="535" stroke="#2563eb" stroke-dasharray="4,3"/>
 
                             <!-- Deliver to C4 - simultaneous -->
-                            <line x1="511" y1="565" x2="683" y2="565" stroke="#1a1a1a" stroke-width="3"/>
-                            <polygon points="683,565 671,559 671,571" fill="#1a1a1a"/>
-                            <rect x="545" y="552" width="100" height="22" rx="5" fill="white" stroke="#1a1a1a" stroke-width="2"/>
-                            <text x="595" y="568" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">5b: Deliver</text>
+                            <line x1="511" y1="555" x2="683" y2="555" stroke="#1a1a1a" stroke-width="3"/>
+                            <polygon points="683,555 671,549 671,561" fill="#1a1a1a"/>
+                            <rect x="545" y="542" width="100" height="22" rx="5" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+                            <text x="595" y="558" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">5b: Deliver</text>
                         </g>
 
                         <!-- STEP 9: Buyer acknowledges -->
                         <g class="step-element" data-step="9">
                             <!-- Acknowledgment back from C4 to C3 -->
-                            <line x1="683" y1="600" x2="511" y2="600" stroke="#666" stroke-width="2" stroke-dasharray="6,4"/>
-                            <polygon points="511,600 521,595 521,605" fill="#666"/>
-                            <rect x="555" y="588" width="80" height="20" rx="4" fill="#f7f7f8" stroke="#666"/>
-                            <text x="595" y="602" text-anchor="middle" font-size="9" font-weight="600" fill="#666">6: ACK</text>
+                            <line x1="683" y1="590" x2="511" y2="590" stroke="#666" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="511,590 521,585 521,595" fill="#666"/>
+                            <rect x="555" y="578" width="80" height="20" rx="4" fill="#f7f7f8" stroke="#666"/>
+                            <text x="595" y="592" text-anchor="middle" font-size="9" font-weight="600" fill="#666">6: ACK</text>
                         </g>
 
                         <!-- 5-Corner Note -->
-                        <rect x="780" y="620" width="150" height="70" rx="8" fill="#fef2f2" stroke="#ce1126"/>
-                        <text x="855" y="640" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">5th Corner (FTA)</text>
-                        <text x="855" y="656" text-anchor="middle" font-size="9" fill="#991b1b">Both ASPs report</text>
-                        <text x="855" y="670" text-anchor="middle" font-size="9" fill="#991b1b">Tax Data (TDD)</text>
-                        <text x="855" y="684" text-anchor="middle" font-size="9" fill="#991b1b">in real-time</text>
+                        <rect x="780" y="610" width="150" height="70" rx="8" fill="#fef2f2" stroke="#ce1126"/>
+                        <text x="855" y="630" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">5th Corner (FTA)</text>
+                        <text x="855" y="646" text-anchor="middle" font-size="9" fill="#991b1b">Both ASPs report</text>
+                        <text x="855" y="660" text-anchor="middle" font-size="9" fill="#991b1b">Tax Data (TDD)</text>
+                        <text x="855" y="674" text-anchor="middle" font-size="9" fill="#991b1b">in real-time</text>
 
                         <!-- Bottom labels -->
                         <rect x="60" y="725" width="130" height="22" rx="6" fill="#1a1a1a"/>
@@ -1750,8 +1750,8 @@
             { title: "C2 validates & converts to PINT AE", description: "ASP validates data and converts to UAE standard XML format" },
             { title: "PARALLEL: C2 sends AS4 to C3 + TDD to C5", description: "Simultaneously: Invoice via Peppol AS4 AND Tax Data to FTA" },
             { title: "AS4 Response (+/-) from C3 to C2", description: "Immediate transport acknowledgment - success (+) or failure (-)" },
-            { title: "MLS Response from C3 to C2 (optional)", description: "Message Level Status: AP/AB/RE with reason codes DL/DF/SV/BV" },
             { title: "C3 validates invoice", description: "Buyer's ASP validates the incoming invoice" },
+            { title: "MLS Response from C3 to C2 (optional)", description: "After validation: AP (Accepted), AB (Acknowledged), RE (Rejected)" },
             { title: "PARALLEL: C3 sends TDD to C5 + Delivers to C4", description: "Simultaneously: Tax Data to FTA AND invoice delivered to Buyer" },
             { title: "C4 acknowledges receipt to C3", description: "Buyer's system confirms receipt of invoice" }
         ];
