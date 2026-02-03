@@ -804,7 +804,7 @@
             <div class="diagram-container">
                 <div class="diagram-title">UAE DCTCE 5-Corner Model - Click "Next Step" to progress</div>
                 <div class="svg-container">
-                    <svg width="950" height="580" viewBox="0 0 950 580" id="sequence-diagram">
+                    <svg width="950" height="720" viewBox="0 0 950 720" id="sequence-diagram">
                         <!-- Corner Labels at top -->
                         <g class="participant-group">
                             <rect x="60" y="20" width="130" height="65" rx="8" fill="#1a1a1a"/>
@@ -837,114 +837,157 @@
                         </g>
 
                         <!-- Lifelines -->
-                        <line x1="125" y1="85" x2="125" y2="520" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
-                        <line x1="315" y1="85" x2="315" y2="520" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
-                        <line x1="505" y1="85" x2="505" y2="520" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
-                        <line x1="695" y1="85" x2="695" y2="520" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
-                        <line x1="865" y1="85" x2="865" y2="520" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
+                        <line x1="125" y1="85" x2="125" y2="660" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
+                        <line x1="315" y1="85" x2="315" y2="660" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
+                        <line x1="505" y1="85" x2="505" y2="660" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
+                        <line x1="695" y1="85" x2="695" y2="660" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
+                        <line x1="865" y1="85" x2="865" y2="660" stroke="#d0d0d0" stroke-width="2" stroke-dasharray="8,6"/>
 
                         <!-- STEP 1: Seller creates invoice -->
                         <g class="step-element" data-step="1">
-                            <rect x="119" y="110" width="12" height="50" rx="4" fill="#e5e5e5" stroke="#999"/>
-                            <rect x="70" y="115" width="100" height="40" rx="6" fill="#f7f7f8" stroke="#d0d0d0"/>
-                            <text x="120" y="140" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Create Invoice</text>
+                            <rect x="119" y="100" width="12" height="40" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <rect x="70" y="105" width="100" height="30" rx="6" fill="#f7f7f8" stroke="#d0d0d0"/>
+                            <text x="120" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Create Invoice</text>
                         </g>
 
                         <!-- STEP 2: Send to Seller ASP -->
                         <g class="step-element" data-step="2">
-                            <line x1="131" y1="180" x2="303" y2="180" stroke="#1a1a1a" stroke-width="3"/>
-                            <polygon points="303,180 291,174 291,186" fill="#1a1a1a"/>
-                            <rect x="165" y="162" width="120" height="28" rx="6" fill="white" stroke="#1a1a1a" stroke-width="2"/>
-                            <text x="225" y="181" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">1: Send Invoice</text>
+                            <line x1="131" y1="155" x2="303" y2="155" stroke="#1a1a1a" stroke-width="3"/>
+                            <polygon points="303,155 291,149 291,161" fill="#1a1a1a"/>
+                            <rect x="165" y="138" width="120" height="26" rx="6" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+                            <text x="225" y="156" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">1: Send Invoice</text>
                         </g>
 
                         <!-- STEP 3: ASP validates & converts -->
                         <g class="step-element" data-step="3">
-                            <rect x="309" y="200" width="12" height="60" rx="4" fill="#e5e5e5" stroke="#999"/>
-                            <rect x="330" y="205" width="100" height="50" rx="6" fill="#ecfdf5" stroke="#00732f"/>
-                            <text x="380" y="225" text-anchor="middle" font-size="10" font-weight="600" fill="#00732f">Validate</text>
-                            <text x="380" y="240" text-anchor="middle" font-size="10" font-weight="600" fill="#00732f">Convert to</text>
-                            <text x="380" y="253" text-anchor="middle" font-size="9" fill="#059669">PINT AE XML</text>
+                            <rect x="309" y="170" width="12" height="50" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <rect x="330" y="175" width="100" height="40" rx="6" fill="#ecfdf5" stroke="#00732f"/>
+                            <text x="380" y="193" text-anchor="middle" font-size="10" font-weight="600" fill="#00732f">Validate &</text>
+                            <text x="380" y="207" text-anchor="middle" font-size="9" fill="#059669">Convert to PINT AE</text>
                         </g>
 
                         <!-- STEP 4: Send via Peppol AS4 -->
                         <g class="step-element" data-step="4">
-                            <line x1="321" y1="280" x2="493" y2="280" stroke="#00732f" stroke-width="3"/>
-                            <polygon points="493,280 481,274 481,286" fill="#00732f"/>
-                            <rect x="350" y="262" width="130" height="28" rx="6" fill="#00732f"/>
-                            <text x="415" y="281" text-anchor="middle" font-size="12" font-weight="700" fill="white">2: Peppol AS4</text>
+                            <line x1="321" y1="235" x2="493" y2="235" stroke="#00732f" stroke-width="3"/>
+                            <polygon points="493,235 481,229 481,241" fill="#00732f"/>
+                            <rect x="350" y="218" width="130" height="26" rx="6" fill="#00732f"/>
+                            <text x="415" y="236" text-anchor="middle" font-size="11" font-weight="700" fill="white">2: AS4 Invoice</text>
+                            <!-- Note: AS4 sent once -->
+                            <rect x="440" y="195" width="90" height="20" rx="4" fill="#fffbeb" stroke="#d97706"/>
+                            <text x="485" y="209" text-anchor="middle" font-size="8" font-weight="600" fill="#92400e">Sent only ONCE</text>
                         </g>
 
-                        <!-- STEP 5: Report TDD to FTA (Seller ASP) -->
+                        <!-- STEP 5: AS4 Response (+/-) -->
                         <g class="step-element" data-step="5">
-                            <line x1="321" y1="320" x2="853" y2="320" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
-                            <polygon points="853,320 843,315 843,325" fill="#ce1126"/>
-                            <rect x="530" y="305" width="120" height="24" rx="6" fill="#fef2f2" stroke="#ce1126"/>
-                            <text x="590" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#ce1126">3: TDD Report</text>
+                            <rect x="499" y="250" width="12" height="70" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <!-- Alt frame for AS4 response -->
+                            <rect x="325" y="255" width="200" height="60" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
+                            <rect x="325" y="255" width="30" height="16" rx="3" fill="#f7f7f8" stroke="#d0d0d0"/>
+                            <text x="340" y="267" text-anchor="middle" font-size="8" font-weight="700" fill="#666">alt</text>
+                            <!-- Success -->
+                            <text x="335" y="282" font-size="9" fill="#059669" font-weight="600">[success]</text>
+                            <line x1="499" y1="285" x2="327" y2="285" stroke="#059669" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="327,285 337,280 337,290" fill="#059669"/>
+                            <rect x="370" y="274" width="80" height="20" rx="4" fill="#ecfdf5" stroke="#059669"/>
+                            <text x="410" y="288" text-anchor="middle" font-size="10" font-weight="700" fill="#059669">3a: AS4 +</text>
+                            <!-- Failure -->
+                            <line x1="325" y1="300" x2="525" y2="300" stroke="#d0d0d0" stroke-dasharray="4,3"/>
+                            <text x="335" y="312" font-size="9" fill="#dc2626" font-weight="600">[failure]</text>
+                            <rect x="370" y="302" width="80" height="18" rx="4" fill="#fef2f2" stroke="#dc2626"/>
+                            <text x="410" y="314" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">3b: AS4 -</text>
                         </g>
 
-                        <!-- STEP 6: Buyer ASP receives & validates -->
+                        <!-- STEP 6: MLS Response (optional, 1+ times) -->
                         <g class="step-element" data-step="6">
-                            <rect x="499" y="340" width="12" height="50" rx="4" fill="#e5e5e5" stroke="#999"/>
-                            <rect x="520" y="345" width="90" height="40" rx="6" fill="#ecfdf5" stroke="#00732f"/>
-                            <text x="565" y="365" text-anchor="middle" font-size="10" font-weight="600" fill="#00732f">Validate</text>
-                            <text x="565" y="378" text-anchor="middle" font-size="9" fill="#059669">& Process</text>
+                            <!-- Opt frame for MLS -->
+                            <rect x="325" y="330" width="200" height="50" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
+                            <rect x="325" y="330" width="30" height="16" rx="3" fill="#f7f7f8" stroke="#d0d0d0"/>
+                            <text x="340" y="342" text-anchor="middle" font-size="8" font-weight="700" fill="#666">opt</text>
+                            <text x="365" y="342" font-size="8" fill="#666" font-style="italic">[MLS supported]</text>
+                            <!-- MLS message -->
+                            <line x1="499" y1="360" x2="327" y2="360" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="327,360 337,355 337,365" fill="#7c3aed"/>
+                            <rect x="355" y="348" width="110" height="22" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
+                            <text x="410" y="364" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">4: MLS (1+ times)</text>
+                            <!-- MLS note -->
+                            <rect x="530" y="335" width="85" height="42" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
+                            <text x="572" y="350" text-anchor="middle" font-size="8" font-weight="600" fill="#6d28d9">MLS Status:</text>
+                            <text x="572" y="362" text-anchor="middle" font-size="7" fill="#7c3aed">AP/AB/RE</text>
+                            <text x="572" y="372" text-anchor="middle" font-size="7" fill="#7c3aed">DL/DF/SV/BV</text>
                         </g>
 
-                        <!-- STEP 7: Report TDD to FTA (Buyer ASP) -->
+                        <!-- STEP 7: Report TDD to FTA (Seller ASP) -->
                         <g class="step-element" data-step="7">
-                            <line x1="511" y1="400" x2="853" y2="400" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
+                            <line x1="321" y1="400" x2="853" y2="400" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
                             <polygon points="853,400 843,395 843,405" fill="#ce1126"/>
-                            <rect x="620" y="385" width="120" height="24" rx="6" fill="#fef2f2" stroke="#ce1126"/>
-                            <text x="680" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#ce1126">4: TDD Report</text>
+                            <rect x="530" y="386" width="120" height="22" rx="5" fill="#fef2f2" stroke="#ce1126"/>
+                            <text x="590" y="401" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">5: TDD Report</text>
                         </g>
 
-                        <!-- STEP 8: Deliver to Buyer -->
+                        <!-- STEP 8: Buyer ASP validates & delivers to C4 -->
                         <g class="step-element" data-step="8">
-                            <line x1="511" y1="440" x2="683" y2="440" stroke="#1a1a1a" stroke-width="3"/>
-                            <polygon points="683,440 671,434 671,446" fill="#1a1a1a"/>
-                            <rect x="540" y="422" width="120" height="28" rx="6" fill="white" stroke="#1a1a1a" stroke-width="2"/>
-                            <text x="600" y="441" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">5: Deliver</text>
+                            <rect x="499" y="420" width="12" height="40" rx="4" fill="#e5e5e5" stroke="#999"/>
+                            <rect x="520" y="425" width="80" height="30" rx="5" fill="#ecfdf5" stroke="#00732f"/>
+                            <text x="560" y="445" text-anchor="middle" font-size="9" font-weight="600" fill="#00732f">Validate</text>
+                        </g>
 
+                        <!-- STEP 9: Report TDD to FTA (Buyer ASP) -->
+                        <g class="step-element" data-step="9">
+                            <line x1="511" y1="475" x2="853" y2="475" stroke="#ce1126" stroke-width="2" stroke-dasharray="8,5"/>
+                            <polygon points="853,475 843,470 843,480" fill="#ce1126"/>
+                            <rect x="620" y="461" width="120" height="22" rx="5" fill="#fef2f2" stroke="#ce1126"/>
+                            <text x="680" y="476" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">6: TDD Report</text>
+                        </g>
+
+                        <!-- STEP 10: Deliver to Buyer -->
+                        <g class="step-element" data-step="10">
+                            <line x1="511" y1="505" x2="683" y2="505" stroke="#1a1a1a" stroke-width="3"/>
+                            <polygon points="683,505 671,499 671,511" fill="#1a1a1a"/>
+                            <rect x="545" y="490" width="110" height="24" rx="5" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+                            <text x="600" y="507" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">7: Deliver</text>
                             <!-- Acknowledgment back -->
-                            <line x1="683" y1="480" x2="511" y2="480" stroke="#666" stroke-width="2" stroke-dasharray="6,4"/>
-                            <polygon points="511,480 521,475 521,485" fill="#666"/>
-                            <text x="600" y="498" text-anchor="middle" font-size="10" fill="#666">ACK</text>
+                            <line x1="683" y1="540" x2="511" y2="540" stroke="#666" stroke-width="2" stroke-dasharray="6,4"/>
+                            <polygon points="511,540 521,535 521,545" fill="#666"/>
+                            <text x="600" y="555" text-anchor="middle" font-size="9" fill="#666">ACK</text>
                         </g>
 
                         <!-- 5-Corner Note -->
-                        <rect x="780" y="440" width="150" height="70" rx="8" fill="#fef2f2" stroke="#ce1126"/>
-                        <text x="855" y="460" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">5th Corner</text>
-                        <text x="855" y="476" text-anchor="middle" font-size="9" fill="#991b1b">Both ASPs report</text>
-                        <text x="855" y="490" text-anchor="middle" font-size="9" fill="#991b1b">Tax Data (TDD) to</text>
-                        <text x="855" y="504" text-anchor="middle" font-size="9" fill="#991b1b">FTA in real-time</text>
+                        <rect x="780" y="500" width="150" height="70" rx="8" fill="#fef2f2" stroke="#ce1126"/>
+                        <text x="855" y="520" text-anchor="middle" font-size="10" font-weight="700" fill="#ce1126">5th Corner (FTA)</text>
+                        <text x="855" y="536" text-anchor="middle" font-size="9" fill="#991b1b">Both ASPs report</text>
+                        <text x="855" y="550" text-anchor="middle" font-size="9" fill="#991b1b">Tax Data (TDD)</text>
+                        <text x="855" y="564" text-anchor="middle" font-size="9" fill="#991b1b">in real-time</text>
 
                         <!-- Bottom labels -->
-                        <rect x="60" y="525" width="130" height="22" rx="6" fill="#1a1a1a"/>
-                        <text x="125" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="600">C1</text>
+                        <rect x="60" y="665" width="130" height="22" rx="6" fill="#1a1a1a"/>
+                        <text x="125" y="680" text-anchor="middle" fill="white" font-size="11" font-weight="600">C1</text>
 
-                        <rect x="250" y="525" width="130" height="22" rx="6" fill="#00732f"/>
-                        <text x="315" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="600">C2</text>
+                        <rect x="250" y="665" width="130" height="22" rx="6" fill="#00732f"/>
+                        <text x="315" y="680" text-anchor="middle" fill="white" font-size="11" font-weight="600">C2</text>
 
-                        <rect x="440" y="525" width="130" height="22" rx="6" fill="#00732f"/>
-                        <text x="505" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="600">C3</text>
+                        <rect x="440" y="665" width="130" height="22" rx="6" fill="#00732f"/>
+                        <text x="505" y="680" text-anchor="middle" fill="white" font-size="11" font-weight="600">C3</text>
 
-                        <rect x="630" y="525" width="130" height="22" rx="6" fill="#1a1a1a"/>
-                        <text x="695" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="600">C4</text>
+                        <rect x="630" y="665" width="130" height="22" rx="6" fill="#1a1a1a"/>
+                        <text x="695" y="680" text-anchor="middle" fill="white" font-size="11" font-weight="600">C4</text>
 
-                        <rect x="800" y="525" width="130" height="22" rx="6" fill="#ce1126"/>
-                        <text x="865" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="600">C5</text>
+                        <rect x="800" y="665" width="130" height="22" rx="6" fill="#ce1126"/>
+                        <text x="865" y="680" text-anchor="middle" fill="white" font-size="11" font-weight="600">C5</text>
                     </svg>
                 </div>
 
                 <div class="legend-bar">
                     <div class="legend-item">
                         <div class="legend-line solid"></div>
-                        <span>Invoice Flow (Peppol AS4)</span>
+                        <span>Invoice/Delivery (AS4)</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-line dashed"></div>
-                        <span>Acknowledgment</span>
+                        <div style="width:24px;height:2px;background:repeating-linear-gradient(90deg,#059669 0px,#059669 4px,transparent 4px,transparent 8px);"></div>
+                        <span>AS4 Response (+/-)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div style="width:24px;height:2px;background:repeating-linear-gradient(90deg,#7c3aed 0px,#7c3aed 4px,transparent 4px,transparent 8px);"></div>
+                        <span>MLS (1+ times)</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-line tax"></div>
@@ -1685,7 +1728,9 @@
             { title: "Seller creates invoice in ERP", description: "Invoice created in seller's accounting/ERP system" },
             { title: "Send invoice to Seller's ASP", description: "Invoice transmitted to the seller's Accredited Service Provider" },
             { title: "ASP validates & converts to PINT AE", description: "ASP validates data and converts to UAE standard XML format" },
-            { title: "Send via Peppol AS4 to Buyer's ASP", description: "Invoice transmitted over Peppol network using AS4 protocol" },
+            { title: "Send via Peppol AS4 (sent ONCE)", description: "Invoice transmitted over Peppol network using AS4 protocol" },
+            { title: "AS4 Response (+/-) from Buyer ASP", description: "Immediate transport acknowledgment - success (+) or failure (-)" },
+            { title: "MLS Response (optional, 1+ times)", description: "Message Level Status: AP/AB/RE with reason codes DL/DF/SV/BV" },
             { title: "Seller ASP reports TDD to FTA", description: "Tax Data Document sent to Federal Tax Authority (5th corner)" },
             { title: "Buyer ASP validates invoice", description: "Receiving ASP validates the incoming invoice" },
             { title: "Buyer ASP reports TDD to FTA", description: "Buyer's ASP also reports Tax Data to FTA" },
