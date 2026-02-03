@@ -1108,6 +1108,128 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="info-card expanded" id="card-as4">
+                    <div class="info-card-header" onclick="toggleCard('card-as4')">
+                        <div class="info-card-icon">&#128232;</div>
+                        <h3>What is AS4?</h3>
+                        <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                    <div class="info-card-body">
+                        <p style="margin-bottom:12px;color:var(--text-secondary);">AS4 (Applicability Statement 4) is the secure messaging protocol used by Peppol for transmitting e-invoices between Access Points.</p>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Response</th>
+                                    <th>Meaning</th>
+                                    <th>What Happens</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="status-dot green"></span><strong>AS4 +</strong></td>
+                                    <td>Success (Receipt)</td>
+                                    <td>Message received at transport level. Contains <code>&lt;eb3:Receipt&gt;</code> with non-repudiation info.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status-dot red"></span><strong>AS4 -</strong></td>
+                                    <td>Failure (Error)</td>
+                                    <td>Transport failed. Contains <code>&lt;eb3:Error&gt;</code> with error code and description.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="background:#eff6ff;padding:12px;border-radius:8px;margin-top:16px;border:1px solid #93c5fd;">
+                            <strong style="color:#1e40af;">Key Point:</strong>
+                            <span style="color:#1e40af;">AS4 +/- is <em>transport-level</em> only. It confirms the message arrived, NOT that it's valid.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card expanded" id="card-mls">
+                    <div class="info-card-header" onclick="toggleCard('card-mls')">
+                        <div class="info-card-icon">&#128221;</div>
+                        <h3>What is MLS (Message Level Status)?</h3>
+                        <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                    <div class="info-card-body">
+                        <p style="margin-bottom:12px;color:var(--text-secondary);">MLS (Message Level Status/Response) is sent by C3 to C2 <strong>after validation</strong>. It reports the business-level processing result.</p>
+
+                        <h4 style="font-size:12px;margin:16px 0 8px;color:var(--text-primary);">Status Codes</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="status-dot green"></span><code>AP</code></td>
+                                    <td>Accepted</td>
+                                    <td>Invoice fully accepted and processed</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status-dot orange"></span><code>AB</code></td>
+                                    <td>Acknowledged</td>
+                                    <td>Received but pending further processing</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status-dot red"></span><code>RE</code></td>
+                                    <td>Rejected</td>
+                                    <td>Invoice rejected - see reason code</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4 style="font-size:12px;margin:16px 0 8px;color:var(--text-primary);">Reason Codes (used with RE or AB)</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>SV</code></td>
+                                    <td>Syntax Violation</td>
+                                    <td>XML malformed or invalid structure</td>
+                                </tr>
+                                <tr>
+                                    <td><code>BV</code></td>
+                                    <td>Business Rule Violation</td>
+                                    <td>Failed validation rules (e.g., invalid VAT calculation)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>DL</code></td>
+                                    <td>Delivered</td>
+                                    <td>Successfully delivered to recipient</td>
+                                </tr>
+                                <tr>
+                                    <td><code>DF</code></td>
+                                    <td>Delivery Failed</td>
+                                    <td>Could not deliver to recipient system</td>
+                                </tr>
+                                <tr>
+                                    <td><code>NR</code></td>
+                                    <td>Not Registered</td>
+                                    <td>Recipient not found in Peppol directory</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="background:#f5f3ff;padding:12px;border-radius:8px;margin-top:16px;border:1px solid #c4b5fd;">
+                            <strong style="color:#5b21b6;">Note:</strong>
+                            <span style="color:#5b21b6;">MLS can be sent multiple times (1+) as processing progresses. It's optional but recommended.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
