@@ -916,7 +916,7 @@
                             <text x="560" y="405" text-anchor="middle" font-size="9" font-weight="600" fill="#00732f">Validate</text>
                         </g>
 
-                        <!-- STEP 7: MLS Response (optional, 1+ times) from C3 to C2 - AFTER validation -->
+                        <!-- STEP 7: MLS Response (optional, at most once) from C3 to C2 - AFTER validation -->
                         <g class="step-element" data-step="7">
                             <!-- Opt frame for MLS -->
                             <rect x="325" y="425" width="200" height="50" rx="6" fill="none" stroke="#d0d0d0" stroke-width="2"/>
@@ -927,7 +927,7 @@
                             <line x1="499" y1="455" x2="327" y2="455" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4"/>
                             <polygon points="327,455 337,450 337,460" fill="#7c3aed"/>
                             <rect x="355" y="443" width="110" height="22" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
-                            <text x="410" y="459" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">4: MLS (1+ times)</text>
+                            <text x="410" y="459" text-anchor="middle" font-size="10" font-weight="700" fill="#6d28d9">4: MLS (once)</text>
                             <!-- MLS note -->
                             <rect x="530" y="430" width="85" height="42" rx="5" fill="#f5f3ff" stroke="#7c3aed"/>
                             <text x="572" y="445" text-anchor="middle" font-size="8" font-weight="600" fill="#6d28d9">After validation:</text>
@@ -1003,7 +1003,7 @@
                     </div>
                     <div class="legend-item">
                         <div style="width:24px;height:2px;background:repeating-linear-gradient(90deg,#7c3aed 0px,#7c3aed 4px,transparent 4px,transparent 8px);"></div>
-                        <span>MLS (C3 to C2)</span>
+                        <span>MLS (C3 to C2, once)</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-line tax"></div>
@@ -1226,7 +1226,7 @@
 
                         <div style="background:#f5f3ff;padding:12px;border-radius:8px;margin-top:16px;border:1px solid #c4b5fd;">
                             <strong style="color:#5b21b6;">Note:</strong>
-                            <span style="color:#5b21b6;">MLS can be sent multiple times (1+) as processing progresses. It's optional but recommended.</span>
+                            <span style="color:#5b21b6;">MLS is sent <strong>at most once</strong> per business document. C3 MUST NOT send another MLS for the same document. It's optional but recommended.</span>
                         </div>
                     </div>
                 </div>
@@ -1873,7 +1873,7 @@
             { title: "PARALLEL: C2 sends AS4 to C3 + TDD to C5", description: "Simultaneously: Invoice via Peppol AS4 AND Tax Data to FTA" },
             { title: "AS4 Response (+/-) from C3 to C2", description: "Immediate transport acknowledgment - success (+) or failure (-)" },
             { title: "C3 validates invoice", description: "Buyer's ASP validates the incoming invoice" },
-            { title: "MLS Response from C3 to C2 (optional)", description: "After validation: AP (Accepted), AB (Acknowledged), RE (Rejected)" },
+            { title: "MLS from C3 to C2 (at most once)", description: "After validation: AP (Accepted), AB (Acknowledged), RE (Rejected). Sent at most once per document." },
             { title: "PARALLEL: C3 sends TDD to C5 + Delivers to C4", description: "Simultaneously: Tax Data to FTA AND invoice delivered to Buyer" },
             { title: "C4 acknowledges receipt to C3", description: "Buyer's system confirms receipt of invoice" }
         ];
